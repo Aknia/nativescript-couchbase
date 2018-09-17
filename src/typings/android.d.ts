@@ -1,3 +1,4 @@
+
 declare namespace com {
     export namespace couchbase {
         export namespace lite {
@@ -22,7 +23,7 @@ declare namespace com {
 
                 public toMutable(): com.couchbase.lite.MutableDocument;
 
-                public getString(name: string): string;
+                public getString(key: string): string;
             }
 
             export class MutableDocument {
@@ -30,7 +31,7 @@ declare namespace com {
 
                 public getId(): string;
 
-                public setString(name: string, value: string);
+                public setString(key: string, value: string);
             }
 
             export class DataSource {
@@ -38,7 +39,7 @@ declare namespace com {
             }
 
             export class QueryBuilder {
-                public static select(select: com.couchbase.lite.SelectResult): com.couchbase.lite.Select;
+                public static select(...select: com.couchbase.lite.SelectResult[]): com.couchbase.lite.Select;
             }
 
             export class Select {
@@ -56,13 +57,21 @@ declare namespace com {
             }
 
             export class Result {
-                public getString(name: string): string;
+                public getString(key: string): string;
+
+                public getValue(key: string): java.lang.Object;
+
+                public getKeys(): java.util.List<string>
+
+                public toList(): java.util.List<java.lang.Object>
             }
 
             export class ResultSet {
-                public allResults(): com.couchbase.lite.Result[];
+                public allResults(): java.util.List<com.couchbase.lite.Result>;
 
                 public next(): com.couchbase.lite.Result;
+
+                public iterator(): java.util.Iterator<com.couchbase.lite.Result>
             }
 
             export interface Query {
@@ -82,11 +91,11 @@ declare namespace com {
             export class SelectResult {
                 public static all(): com.couchbase.lite.SelectResult.From;
 
-                public static property(name: string): com.couchbase.lite.SelectResult.As;
+                public static property(key: string): com.couchbase.lite.SelectResult.As;
             }
 
             export class Expression {
-                public static property(name: string): com.couchbase.lite.PropertyExpression;
+                public static property(key: string): com.couchbase.lite.PropertyExpression;
 
                 public static string(value: string): com.couchbase.lite.Expression;
             }
