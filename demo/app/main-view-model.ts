@@ -11,4 +11,8 @@ export class HelloWorldModel extends Observable {
     this.couchbase = new Couchbase();
     this.message = this.couchbase.message;
   }
+
+  tap() {
+    this.couchbase.select();
+  }
 }
