@@ -56,6 +56,18 @@ declare namespace com {
                 public execute(): com.couchbase.lite.ResultSet;
             }
 
+            export class Dictionary {
+                public getString(key: string): string;
+
+                public getKeys(): java.util.List<string>
+
+                public toList(): java.util.List<java.lang.Object>
+            }
+
+            export class MutableDictionary extends Dictionary {
+                
+            }
+
             export class Result {
                 public getString(key: string): string;
 
@@ -64,6 +76,8 @@ declare namespace com {
                 public getKeys(): java.util.List<string>
 
                 public toList(): java.util.List<java.lang.Object>
+
+                public getDictionary(key: string): com.couchbase.lite.Dictionary
             }
 
             export class ResultSet {

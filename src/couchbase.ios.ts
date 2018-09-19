@@ -1,5 +1,5 @@
-import { Common } from './couchbase.common';
+// import { Common } from './couchbase.common';
 
-export class Couchbase extends Common {
+export class Couchbase {
 
 }
