@@ -24,14 +24,18 @@ declare namespace com {
                 public toMutable(): com.couchbase.lite.MutableDocument;
 
                 public getString(key: string): string;
+
+                public getBoolean(key: string): boolean;
             }
 
-            export class MutableDocument {
+            export class MutableDocument extends com.couchbase.lite.Document {
                 public constructor();
 
                 public getId(): string;
 
                 public setString(key: string, value: string);
+
+                public setBoolean(key: string, value: boolean);
             }
 
             export class DataSource {
@@ -59,17 +63,21 @@ declare namespace com {
             export class Dictionary {
                 public getString(key: string): string;
 
+                public getBoolean(key: string): boolean;
+
                 public getKeys(): java.util.List<string>
 
                 public toList(): java.util.List<java.lang.Object>
             }
 
             export class MutableDictionary extends Dictionary {
-                
+
             }
 
             export class Result {
                 public getString(key: string): string;
+
+                public getBoolean(key: string): boolean;
 
                 public getValue(key: string): java.lang.Object;
 
@@ -78,6 +86,9 @@ declare namespace com {
                 public toList(): java.util.List<java.lang.Object>
 
                 public getDictionary(key: string): com.couchbase.lite.Dictionary
+
+                public toMap(): java.util.Map<string, java.lang.Object>
+
             }
 
             export class ResultSet {
