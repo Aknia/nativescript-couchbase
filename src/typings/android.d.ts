@@ -7,7 +7,7 @@ declare namespace com {
             }
 
             export class Database {
-                public constructor(name: string, config?: DatabaseConfiguration);
+                public constructor(name: string, config: DatabaseConfiguration);
 
                 public save(document: com.couchbase.lite.MutableDocument);
 

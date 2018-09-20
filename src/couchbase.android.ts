@@ -1,19 +1,19 @@
-export class DatabaseAs extends com.couchbase.lite.Database.As {}
-export class Database extends com.couchbase.lite.Database {}
-export class DatabaseConfiguration extends com.couchbase.lite.DatabaseConfiguration {}
-export class Document extends com.couchbase.lite.Document {}
-export class MutableDocument extends com.couchbase.lite.MutableDocument {}
-export class DataSource extends com.couchbase.lite.DataSource {}
-export class QueryBuilder extends com.couchbase.lite.QueryBuilder {}
-export class Select extends com.couchbase.lite.Select {}
-export class From extends com.couchbase.lite.From {}
-export class Where extends com.couchbase.lite.Where {}
-export class Dictionary extends com.couchbase.lite.Dictionary {}
-export class MutableDictionary extends com.couchbase.lite.MutableDictionary {}
-export class Result extends com.couchbase.lite.Result {}
-export class ResultSet extends com.couchbase.lite.ResultSet {}
-export class SelectResultFrom extends com.couchbase.lite.SelectResult.From {}
-export class SelectResultAs extends com.couchbase.lite.SelectResult.As {}
-export class SelectResult extends com.couchbase.lite.SelectResult {}
-export class Expression extends com.couchbase.lite.Expression {}
-export class PropertyExpression extends com.couchbase.lite.PropertyExpression {}
+export let DatabaseAs = com.couchbase.lite.Database.As;
+export let Database = com.couchbase.lite.Database;
+export let DatabaseConfiguration = com.couchbase.lite.DatabaseConfiguration;
+export let Document = com.couchbase.lite.Document;
+export let MutableDocument = com.couchbase.lite.MutableDocument;
+export let DataSource = com.couchbase.lite.DataSource;
+export let QueryBuilder = com.couchbase.lite.QueryBuilder;
+export let Select = com.couchbase.lite.Select;
+export let From = com.couchbase.lite.From;
+export let Where = com.couchbase.lite.Where;
+export let Dictionary = com.couchbase.lite.Dictionary;
+export let MutableDictionary = com.couchbase.lite.MutableDictionary;
+export let Result = com.couchbase.lite.Result;
+export let ResultSet = com.couchbase.lite.ResultSet;
+export let SelectResultFrom = com.couchbase.lite.SelectResult.From;
+export let SelectResultAs = com.couchbase.lite.SelectResult.As;
+export let SelectResult = com.couchbase.lite.SelectResult;
+export let Expression = com.couchbase.lite.Expression;
+export let PropertyExpression = com.couchbase.lite.PropertyExpression;

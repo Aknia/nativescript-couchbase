@@ -3,8 +3,10 @@ import * as pages from 'tns-core-modules/ui/page';
 
 import { HelloWorldModel } from './main-view-model';
 
-import { Database, DatabaseConfiguration } from 'nativescript-couchbase';
 import * as utils from 'tns-core-modules/utils/utils';
+import { Database, DatabaseConfiguration, MutableDocument } from 'nativescript-couchbase';
+import { GestureEventData } from 'tns-core-modules/ui/gestures/gestures';
+
 
 // Event handler for Page 'loaded' event attached in main-page.xml
 export function pageLoaded(args: observable.EventData) {
@@ -13,9 +15,17 @@ export function pageLoaded(args: observable.EventData) {
     page.bindingContext = new HelloWorldModel();
 }
 
-export function onTap(args) {
-    console.log('ouchi');
-    let couchbase = new Database('test', new DatabaseConfiguration(utils.ad.getApplicationContext));
+export function onTap(args: GestureEventData) {
+    // console.log(args);
+    let database = new Database('test', new DatabaseConfiguration(utils.ad.getApplicationContext()));
+
+    let mutable = new MutableDocument();
+    mutable.setString('test', 'myValuePouetss');
+
+    database.save(mutable);
+
+    let document = database.getDocument(mutable.getId());
+    console.log(document.getString('test'));
     // couchbase.select();
 }
 
