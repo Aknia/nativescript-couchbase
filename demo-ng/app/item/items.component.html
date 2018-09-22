@@ -1,12 +1,11 @@
-<ActionBar title="My App" class="action-bar"></ActionBar>
+<ActionBar title="My App" class="action-bar">
+    <ActionItem (tap)="openAddModal()" ios.systemIcon="4" ios.position="right" android.systemIcon="ic_menu_add" android.position="actionBar"></ActionItem>
+</ActionBar>
 
 <StackLayout class="page">
-    <Button text="Add value" (tap)="addValue()"></Button>
-    <Button text="Get values" (tap)="getValues()"></Button>
-    <!-- <ListView [items]="items" class="list-group">
+    <ListView [items]="items" class="list-group">
         <ng-template let-item="item">
-            <Label [nsRouterLink]="['/item', item.id]" [text]="item.name"
-                class="list-group-item"></Label>
+            <Label [text]="item.getString('test')" class="list-group-item"></Label>
         </ng-template>
-    </ListView> -->
+    </ListView>
 </StackLayout>

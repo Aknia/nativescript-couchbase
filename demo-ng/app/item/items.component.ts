@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewContainerRef } from "@angular/core";
 
-import { Item } from "./item";
 import { ItemService } from "./item.service";
+import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
+import { ItemAddModalComponent } from "./item-add-modal.component";
 
 @Component({
     selector: "ns-items",
@@ -9,22 +10,29 @@ import { ItemService } from "./item.service";
     templateUrl: "./items.component.html",
 })
 export class ItemsComponent implements OnInit {
-    items: Item[];
+    items: Array<any>;
 
-    // This pattern makes use of Angular’s dependency injection implementation to inject an instance of the ItemService service into this class.
-    // Angular knows about this service because it is included in your app’s main NgModule, defined in app.module.ts.
-    constructor(private itemService: ItemService) { }
+    public constructor(private itemService: ItemService, private modalDialogService: ModalDialogService, private viewContainerRef: ViewContainerRef) { }
 
-    ngOnInit(): void {
-        this.items = this.itemService.getItems();
+    public ngOnInit(): void {
+        this.items = this.itemService.getValues();
     }
 
+    public openAddModal() {
+        const options: ModalDialogOptions = {
+            viewContainerRef: this.viewContainerRef,
+            context: {},
+            fullscreen: false
+        };
+
+        this.modalDialogService.showModal(ItemAddModalComponent, options)
+            .then((result: string) => {
+                console.log(result);
+            })
+        ;
+    }
 
     public addValue() {
         this.itemService.addValue();
-    }
-
-    public getValues() {
-        this.itemService.getValues();
     }
 }

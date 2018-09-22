@@ -1,0 +1,10 @@
+<StackLayout>
+    <StackLayout class="modal">
+        <TextField [(ngModel)]="item.string" hint="Enter string" autocorrect="false" maxLength="25" class="input input-border"></TextField>
+        <TextField [(ngModel)]="item.integer" hint="Enter integer" autocorrect="false" maxLength="25" class="input input-border"></TextField>
+    </StackLayout>
+    <FlexBoxLayout>
+        <Button (tap)="cancel()" text="Cancel"></Button>
+        <Button (tap)="ok()" text="OK"></Button>
+    </FlexBoxLayout>
+</StackLayout>

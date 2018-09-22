@@ -4,10 +4,19 @@ import { Routes } from "@angular/router";
 
 import { ItemsComponent } from "./item/items.component";
 import { ItemDetailComponent } from "./item/item-detail.component";
+import { ItemAddModalComponent } from "./item/item-add-modal.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/items", pathMatch: "full" },
-    { path: "items", component: ItemsComponent },
+    {
+        path: "items",
+        component: ItemsComponent,
+        children: [
+            {
+                path: "modal-view", component: ItemAddModalComponent
+            }
+        ]
+    },
     { path: "item/:id", component: ItemDetailComponent },
 ];
 
