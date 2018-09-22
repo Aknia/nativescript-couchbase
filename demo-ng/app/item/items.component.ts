@@ -18,4 +18,13 @@ export class ItemsComponent implements OnInit {
     ngOnInit(): void {
         this.items = this.itemService.getItems();
     }
+
+
+    public addValue() {
+        this.itemService.addValue();
+    }
+
+    public getValues() {
+        this.itemService.getValues();
+    }
 }

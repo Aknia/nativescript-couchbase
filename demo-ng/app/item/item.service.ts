@@ -1,9 +1,13 @@
 import { Injectable } from "@angular/core";
 
 import { Item } from "./item";
+import { Database, DatabaseConfiguration, MutableDocument, QueryBuilder } from 'nativescript-couchbase';
+import * as utils from 'tns-core-modules/utils/utils';
 
 @Injectable()
 export class ItemService {
+    private database;
+
     private items = new Array<Item>(
         { id: 1, name: "Ter Stegen", role: "Goalkeeper" },
         { id: 3, name: "Piqué", role: "Defender" },
@@ -28,6 +32,33 @@ export class ItemService {
         { id: 24, name: "Mathieu", role: "Defender" },
         { id: 25, name: "Masip", role: "Goalkeeper" },
     );
+
+    public constructor() {
+        this.database = new Database('test', new DatabaseConfiguration(utils.ad.getApplicationContext()));
+    }
+
+    public addValue() {
+        let mutable = new MutableDocument();
+        mutable.setString('test', 'myValuePouetss');
+
+        this.database.save(mutable);
+
+        let document = this.database.getDocument(mutable.getId());
+        console.log(document.getString('test'));
+    }
+
+    public getValues() {
+        let query = QueryBuilder
+            .select([com.couchbase.lite.SelectResult.all()])
+            .from(com.couchbase.lite.DataSource.database(this.database))
+            // .where(com.couchbase.lite.Expression.property('test').equalTo(com.couchbase.lite.Expression.string('myValuePouetsss')))
+        ;
+
+        let result = query.execute();
+
+        console.log(result.allResults().size());
+    }
+
 
     getItems(): Item[] {
         return this.items;
