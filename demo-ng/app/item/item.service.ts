@@ -6,7 +6,7 @@ import * as utils from 'tns-core-modules/utils/utils';
 
 @Injectable()
 export class ItemService {
-    private database;
+    private database: Database;
 
     private items = new Array<Item>(
         { id: 1, name: "Ter Stegen", role: "Goalkeeper" },
