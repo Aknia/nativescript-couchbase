@@ -1,5 +1,3 @@
-/// <reference path="./typings/android.d.ts" />
-
 export declare let DatabaseAs: typeof com.couchbase.lite.Database.As;
 export declare let Database: typeof com.couchbase.lite.Database;
 export declare let DatabaseConfiguration: typeof com.couchbase.lite.DatabaseConfiguration;
