@@ -17,3 +17,5 @@ export let SelectResultAs = com.couchbase.lite.SelectResult.As;
 export let SelectResult = com.couchbase.lite.SelectResult;
 export let Expression = com.couchbase.lite.Expression;
 export let PropertyExpression = com.couchbase.lite.PropertyExpression;
+export let Meta = com.couchbase.lite.Meta;
+export let MetaExpression = com.couchbase.lite.MetaExpression;

@@ -11,6 +11,8 @@ declare namespace com {
 
                 public save(document: com.couchbase.lite.MutableDocument);
 
+                public delete(document: com.couchbase.lite.Document);
+
                 public getDocument(id: string): com.couchbase.lite.Document;
             }
 
@@ -36,6 +38,8 @@ declare namespace com {
                 public setString(key: string, value: string);
 
                 public setBoolean(key: string, value: boolean);
+
+                public setValue(key: string, value: any);
             }
 
             export class DataSource {
@@ -72,6 +76,15 @@ declare namespace com {
 
             export class MutableDictionary extends Dictionary {
 
+            }
+
+            export class Meta {
+                public static id: MetaExpression;
+
+                public static sequence: MetaExpression;
+            }
+
+            export class MetaExpression extends Meta {
             }
 
             export class Result {
@@ -117,6 +130,8 @@ declare namespace com {
                 public static all(): com.couchbase.lite.SelectResult.From;
 
                 public static property(key: string): com.couchbase.lite.SelectResult.As;
+
+                public static expression(key: com.couchbase.lite.Expression): com.couchbase.lite.SelectResult.As;
             }
 
             export class Expression {

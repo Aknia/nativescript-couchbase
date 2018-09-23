@@ -26,13 +26,19 @@ export class ItemsComponent implements OnInit {
         };
 
         this.modalDialogService.showModal(ItemAddModalComponent, options)
-            .then((result: string) => {
-                console.log(result);
+            .then((item) => {
+                if (!item) { return };
+
+                this.itemService.addValue(item);
+
+                this.items = this.itemService.getValues();
             })
         ;
     }
 
-    public addValue() {
-        this.itemService.addValue();
+    public deleteItem(item) {
+        this.itemService.deleteValue(item);
+
+        this.items = this.itemService.getValues();
     }
 }

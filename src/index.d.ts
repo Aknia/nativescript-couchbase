@@ -17,3 +17,4 @@ export class SelectResultAs extends com.couchbase.lite.SelectResult.As {}
 export class SelectResult extends com.couchbase.lite.SelectResult {}
 export class Expression extends com.couchbase.lite.Expression {}
 export class PropertyExpression extends com.couchbase.lite.PropertyExpression {}
+export class Meta extends com.couchbase.lite.Meta {}

@@ -5,7 +5,10 @@
 <StackLayout class="page">
     <ListView [items]="items" class="list-group">
         <ng-template let-item="item">
-            <Label [text]="item.getString('test')" class="list-group-item"></Label>
+            <FlexBoxLayout>
+                <Label [text]="item.getString('string')" class="list-group-item"></Label>
+                <Button (tap)="deleteItem(item)" text="Delete"></Button>
+            </FlexBoxLayout>
         </ng-template>
     </ListView>
 </StackLayout>
